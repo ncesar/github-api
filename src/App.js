@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import Navbar from "./components/Navbar";
 import Modal from "react-modal";
-import PullRequest from "./components/PullRequest";
 
 class App extends Component {
   constructor() {
@@ -10,9 +9,7 @@ class App extends Component {
     this.state = {
       githubData: [],
       isActive: false,
-      githubRepo: [],
-      user: "",
-      nomeDoRepo: ""
+      githubRepo: []
     };
   }
   componentDidMount() {
@@ -25,32 +22,25 @@ class App extends Component {
         this.setState({ githubData: res.data.items });
       });
 
-    axios
-      .get(
-        "https://api.github.com/repos/" +
-          this.user +
-          "/" +
-          this.nomeDoRepo +
-          "/pulls"
-      )
-      .then((repo) => {
-        console.log("repo", repo);
-        this.setState({ githubRepo: repo.data.items });
-      });
-
     Modal.setAppElement("body");
   }
 
   toggleModal = (user, nomeDoRepo) => {
+    axios
+      .get("https://api.github.com/repos/" + user + "/" + nomeDoRepo + "/pulls")
+      .then((repo) => {
+        console.log("repo", repo);
+        this.setState({ githubRepo: repo.data });
+      });
+
     this.setState({
-      isActive: !this.state.isActive,
-      user: "",
-      nomeDoRepo: ""
+      isActive: !this.state.isActive
     });
   };
 
   render() {
     const { githubData } = this.state;
+    const { githubRepo } = this.state;
     return (
       <div className="container">
         <Navbar />
@@ -78,13 +68,23 @@ class App extends Component {
                 Stars:&nbsp;
                 {name.stargazers_count}
               </h1>
-              <button onClick={this.toggleModal}>
+              <button
+                onClick={this.toggleModal.bind(
+                  this,
+                  name.owner.login,
+                  name.name
+                )}
+              >
                 Open pull request for this repository
               </button>
               <Modal
                 isOpen={this.state.isActive}
                 onRequestClose={this.toggleModal}
-              />
+              >
+                {githubRepo.map((name, index) => (
+                  <div key={index}>{name.title}</div>
+                ))}
+              </Modal>
             </div>
           ))}
         </div>
