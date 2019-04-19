@@ -1,0 +1,132 @@
+.App {
+  p {
+    margin-bottom: 3px;
+  }
+  .bg-row {
+    box-shadow: 0px 0px 5px #bdc3c7;
+    background-color: #ecf0f1a3;
+    padding: 20px;
+    border-radius: 5px;
+    .repositorios {
+      width: 100%;
+      transition: all 0.2s ease;
+      margin-bottom: 20px;
+      &:hover {
+        .repo-content {
+          background-color: #d2d6d8;
+          transition: 500ms ease-in-out;
+        }
+      }
+      .repo-image {
+        width: 100%;
+        height: auto;
+        box-shadow: 0px 0px 5px #bdc3c7;
+        -webkit-transition: all 0.2s ease;
+        -moz-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+        border-radius: 5px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      .repo-content {
+        padding: 10px;
+        transition: 500ms ease-in-out;
+        overflow: hidden;
+        box-shadow: 0px 0px 5px #bdc3c7;
+        transition: 500ms ease-in-out;
+        background-color: #ecf0f1;
+        p {
+          position: relative;
+          overflow: hidden;
+          max-height: 20px; /* set this to the height your first row would be */
+          transition: max-height 0.5s;
+        }
+        .read-more {
+          transition: 500ms ease-in-out;
+          cursor: pointer;
+          &:after {
+            content: "...";
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            height: 1.5em; /* positioning it in line with the text - hacky */
+            padding: 0 0.2em;
+            opacity: 1;
+            transition: opacity 0s 0.5s;
+          }
+          &:hover {
+            max-height: 1000px;
+          }
+          &:hover::after {
+            opacity: 0;
+            transition: opacity 0s 0s;
+          }
+        }
+        .btn-container {
+          display: flex;
+          justify-content: center;
+          .myButton {
+            -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+            -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+            box-shadow: inset 0px 1px 0px 0px #ffffff;
+            background: -webkit-gradient(
+              linear,
+              left top,
+              left bottom,
+              color-stop(0.05, #f9f9f9),
+              color-stop(1, #e9e9e9)
+            );
+            background: -moz-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
+            background: -webkit-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
+            background: -o-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
+            background: -ms-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
+            background: linear-gradient(to bottom, #f9f9f9 5%, #e9e9e9 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#e9e9e9',GradientType=0);
+            background-color: #f9f9f9;
+            -moz-border-radius: 6px;
+            -webkit-border-radius: 6px;
+            border-radius: 6px;
+            border: 1px solid #dcdcdc;
+            display: inline-block;
+            cursor: pointer;
+            color: #666666;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 6px 24px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px #ffffff;
+            transition: 500ms ease-in-out;
+            &:hover {
+              background: -webkit-gradient(
+                linear,
+                left top,
+                left bottom,
+                color-stop(0.05, #e9e9e9),
+                color-stop(1, #f9f9f9)
+              );
+              background: -moz-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
+              background: -webkit-linear-gradient(
+                top,
+                #e9e9e9 5%,
+                #f9f9f9 100%
+              );
+              background: -o-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
+              background: -ms-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
+              background: linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
+              filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#f9f9f9',GradientType=0);
+              background-color: #e9e9e9;
+              transition: 500ms ease-in-out;
+            }
+            &:active {
+              position: relative;
+              top: 1px;
+              transition: 500ms ease-in-out;
+            }
+          }
+        }
+      }
+    }
+  }
+}

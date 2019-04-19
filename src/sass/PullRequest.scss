@@ -1,0 +1,93 @@
+.pull-request {
+  a {
+    text-decoration: none !important;
+    color: #212529;
+    cursor: pointer;
+    &:hover {
+      color: inherit;
+    }
+  }
+  .pull-image {
+    width: 100%;
+    height: auto;
+    box-shadow: 0px 0px 5px #bdc3c7;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    border-radius: 3px;
+    @media (max-width: 500px) {
+      width: 30%;
+    }
+  }
+  .pull-content {
+    width: 100%;
+    overflow: hidden;
+    p {
+      margin-bottom: 3px;
+    }
+    .pull-title {
+      font-size: 20px;
+    }
+    .number-pull {
+      color: #a3aab1;
+    }
+    .repo-user {
+      background-color: #f6f8fa;
+      border: 1px solid #d1d5da;
+      border-radius: 3px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      color: #586069;
+      padding: 15px;
+    }
+    .pull-body {
+      margin-top: -4px;
+      border: 1px solid #d1d5da;
+      border-radius: 3px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      color: #24292e;
+      padding: 15px;
+    }
+  }
+  hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+}
+.close {
+  position: fixed;
+  right: 63px;
+  top: 44px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  opacity: 0.3;
+  z-index: 999;
+  transition: 500ms ease-in-out;
+  &:hover {
+    opacity: 1;
+    transition: 500ms ease-in-out;
+  }
+  &::before,
+  &::after {
+    position: absolute;
+    left: 15px;
+    content: " ";
+    height: 33px;
+    width: 2px;
+    background-color: #333;
+  }
+  &::before {
+    transform: rotate(45deg);
+  }
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
