@@ -64,11 +64,6 @@ class App extends Component {
       });
   };
 
-  clicado = () => {
-    console.log("clicado");
-    this.className = "teste2";
-  };
-
   render() {
     const { githubData } = this.state;
     const { githubRepo } = this.state;
